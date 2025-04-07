@@ -1,0 +1,65 @@
+/* Estilos gerais */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Estilos do cabeçalho */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ffd700 !important;
+}
+
+/* Estilos das tabelas */
+.table {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: white;
+    border-bottom: none;
+}
+
+/* Estilos dos formulários */
+.form-control:focus {
+    border-color: #343a40;
+    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25);
+}
+
+/* Estilos dos botões */
+.btn-primary {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.btn-primary:hover {
+    background-color: #23272b;
+    border-color: #23272b;
+}
+
+/* Estilos dos badges */
+.badge {
+    padding: 0.5em 1em;
+}
+
+/* Estilos do rodapé */
+.footer {
+    background-color: #343a40 !important;
+    color: white !important;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .table-responsive {
+        margin: 0 -15px;
+    }
+} 
