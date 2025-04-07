@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class MainQuest {
     private String description;
 
     @NotNull(message = "A duração diária é obrigatória")
-    private Duration dailyDuration;
+    private Integer dailyDuration;
 
     @NotNull(message = "O número de dias por semana é obrigatório")
     private Integer daysPerWeek;

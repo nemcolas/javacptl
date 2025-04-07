@@ -49,7 +49,7 @@ public class SideQuestController {
     public String showEditForm(@PathVariable Long id, Model model) {
         SideQuest sideQuest = sideQuestRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
-        model.addAttribute("sideQuest", sideQuest);
+        model.addAttribute("sideQuest", sideQuex'x'st);
         model.addAttribute("mainQuests", mainQuestRepository.findAll());
         return "side-quest/form";
     }
