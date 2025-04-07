@@ -1,0 +1,7 @@
+com\quest\questoftheday\model\MainQuest.class
+com\quest\questoftheday\controller\MainQuestController.class
+com\quest\questoftheday\repository\SideQuestRepository.class
+com\quest\questoftheday\controller\SideQuestController.class
+com\quest\questoftheday\model\SideQuest.class
+com\quest\questoftheday\repository\MainQuestRepository.class
+com\quest\questoftheday\QuestOfTheDayApplication.class

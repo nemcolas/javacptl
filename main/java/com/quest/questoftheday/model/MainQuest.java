@@ -23,7 +23,7 @@ public class MainQuest {
     private String description;
 
     @NotNull(message = "A duração diária é obrigatória")
-    private Duration dailyDuration;
+    private String dailyDuration;
 
     @NotNull(message = "O número de dias por semana é obrigatório")
     private Integer daysPerWeek;

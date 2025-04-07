@@ -8,7 +8,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@Entitys
+@Entity
 public class SideQuest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +27,5 @@ public class SideQuest {
 
     private LocalDateTime deadline;
     private boolean completed = false;
-    private int experiencePoints = 100;
-}
+    private int experiencePoints = 100; // Pontos de experiência padrão
+} 

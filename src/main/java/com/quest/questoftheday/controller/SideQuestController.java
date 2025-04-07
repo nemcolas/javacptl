@@ -70,4 +70,4 @@ public class SideQuestController {
         sideQuestRepository.deleteById(id);
         return "redirect:/side-quests";
     }
-}
+} 

@@ -5,11 +5,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
-@Entitys
-public class SideQuest {
+@Entity
+public class MainQuest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,12 +22,14 @@ public class SideQuest {
     @NotBlank(message = "A descrição é obrigatória")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "main_quest_id")
-    @NotNull(message = "A missão principal é obrigatória")
-    private MainQuest mainQuest;
+    @NotNull(message = "A duração diária é obrigatória")
+    private Duration dailyDuration;
 
-    private LocalDateTime deadline;
+    @NotNull(message = "O número de dias por semana é obrigatório")
+    private Integer daysPerWeek;
+
+    @OneToMany(mappedBy = "mainQuest", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SideQuest> sideQuests = new ArrayList<>();
+
     private boolean completed = false;
-    private int experiencePoints = 100;
-}
+} 
