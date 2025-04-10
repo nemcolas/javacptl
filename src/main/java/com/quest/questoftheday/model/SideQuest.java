@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -20,8 +21,9 @@ public class SideQuest {
     @NotBlank(message = "A descrição é obrigatória")
     private String description;
 
+    @ToString.Exclude
     @ManyToOne
-    @JoinColumn(name = "main_quest_id")
+    @JoinColumn(name = "main_quest_id", nullable = false)
     @NotNull(message = "A missão principal é obrigatória")
     private MainQuest mainQuest;
 
