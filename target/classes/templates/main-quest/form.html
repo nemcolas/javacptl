@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${mainQuest.id == null ? 'Nova Missão Principal' : 'Editar Missão Principal'} + ' - Quest of the Day'"></title>
+    <title th:text="${mainQuest.id == null ? #messages.msg('main-quest.new') : #messages.msg('main-quest.edit')} + ' - Quest of the Day'"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -13,31 +13,31 @@
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <h2 th:text="${mainQuest.id == null ? 'Nova Missão Principal' : 'Editar Missão Principal'}"></h2>
-                    
+                    <h2 th:text="${mainQuest.id == null ? #messages.msg('main-quest.new') : #messages.msg('main-quest.edit')}"></h2>
+
                     <form th:action="@{${mainQuest.id == null ? '/main-quests' : '/main-quests/' + mainQuest.id}}"
                           th:object="${mainQuest}" method="post" class="mt-4">
-                        
+
                         <div class="mb-3">
-                            <label for="title" class="form-label">Título</label>
+                            <label for="title" class="form-label" th:text="#{main-quest.form.title}">Título</label>
                             <input type="text" class="form-control" id="title" th:field="*{title}" required>
                             <div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="description" class="form-label">Descrição</label>
+                            <label for="description" class="form-label" th:text="#{main-quest.form.description}">Descrição</label>
                             <textarea class="form-control" id="description" th:field="*{description}" rows="3" required></textarea>
                             <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="dailyDuration" class="form-label">Duração Diária (horas)</label>
+                            <label for="dailyDuration" class="form-label" th:text="#{main-quest.form.daily-duration}">Duração Diária (horas)</label>
                             <input type="number" class="form-control" id="dailyDuration" th:field="*{dailyDuration}" required>
                             <div class="text-danger" th:if="${#fields.hasErrors('dailyDuration')}" th:errors="*{dailyDuration}"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="daysPerWeek" class="form-label">Dias por Semana</label>
+                            <label for="daysPerWeek" class="form-label" th:text="#{main-quest.form.days-per-week}">Dias por Semana</label>
                             <input type="number" class="form-control" id="daysPerWeek" th:field="*{daysPerWeek}" required>
                             <div class="text-danger" th:if="${#fields.hasErrors('daysPerWeek')}" th:errors="*{daysPerWeek}"></div>
                         </div>
@@ -45,13 +45,13 @@
                         <div class="mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="completed" th:field="*{completed}">
-                                <label class="form-check-label" for="completed">Missão Completa</label>
+                                <label class="form-check-label" for="completed" th:text="#{main-quest.form.completed}">Missão Completa</label>
                             </div>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a th:href="@{/main-quests}" class="btn btn-secondary me-md-2">Cancelar</a>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <a th:href="@{/main-quests}" class="btn btn-secondary me-md-2" th:text="#{button.cancel}">Cancelar</a>
+                            <button type="submit" class="btn btn-primary" th:text="#{button.save}">Salvar</button>
                         </div>
                     </form>
                 </div>
@@ -60,5 +60,6 @@
     </main>
 
     <div th:replace="fragments/footer :: footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>
